@@ -36,6 +36,14 @@ namespace Forces
         {
             return (Math.Acos(x) * 180 / Math.PI);
         }
+        double tan(double x)
+        {
+            return (Math.Cos(x * Math.PI / 180.00));
+        }
+        double atan(double x)
+        {
+            return (Math.Acos(x) * 180 / Math.PI);
+        }
 
 
         private void Label1_Click(object sender, EventArgs e)
@@ -48,21 +56,36 @@ namespace Forces
             try
             {
 
-
-                double Force = double.Parse(richTextBox1.Text);
-                double Angle = double.Parse(richTextBox2.Text);
-
-                double Fx = Force * cos(Angle);
-                double Fy = Angle * sin(Angle);
+                // reads the forces from both text boxes
+                double Fx = double.Parse(richTextBox3.Text);
+                double Fy = double.Parse(richTextBox4.Text);
                 //
-                label1.Text = "fx = " + Fx;
-                label2.Text = "Fy = " + Fx;
+                double Force = Math.Sqrt(Fx*Fx+Fy*Fy);
+                double Angle = Fy * atan(Fy/Fx);
+                //
+                label3.Text = "Force = " + Fx;
+                label4.Text = "Angle = " + Fx;
             }
             catch
             {
                 // show error message on screen
                 MessageBox.Show("WRONG");
             }
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
